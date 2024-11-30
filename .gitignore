@@ -23,3 +23,8 @@ go.work.sum
 
 # env file
 .env
+
+data/**/*.json
+data/**/*.csv
+!data/**/README.md
+!data/**/README.txt
