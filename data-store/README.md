@@ -1,8 +1,12 @@
 # Data
 Data is sourced from: https://cricsheet.org
 
+> [!NOTE]
+> Currently the data is downloaded manually.
+> TODO: Write a script to download and dump this data.
+
 The folder is structured like this:
-- data
+- data-store
     - people.csv
     - matches
         - [match-id].json

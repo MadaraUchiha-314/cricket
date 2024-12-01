@@ -24,9 +24,9 @@ go.work.sum
 # env file
 .env
 
-data/**/*.json
-data/**/*.csv
-!data/**/README.md
-!data/**/README.txt
+data-store/**/*.json
+data-store/**/*.csv
+!data-store/**/README.md
+!data-store/**/README.txt
 
 bin/

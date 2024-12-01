@@ -66,7 +66,7 @@ func GetCricketersInfoFromFile() {
 	 * key_pulse
 	 *   The person's identifier on Pulse
 	 */
-	file, err := os.Open("./data/people/people.csv")
+	file, err := os.Open("../data-store/people/people.csv")
 	if err != nil {
 		log.Fatalf("failed to open file: %s", err)
 	}
