@@ -25,5 +25,15 @@ miminikube dashboard
 ### svc
 The micro-service which powers the REST APIs behind Cricketing As A Service.
 
+#### Building
+
+```sh
+cd svc
+# Build image
+podman build -t cricket-svc-image .
+# Run container
+podman run -p 3000:3000 cricket-svc-image
+```
+
 ### data-store (TBD)
 A data store which stores all the raw data which is consumed by other processes to injest into database.

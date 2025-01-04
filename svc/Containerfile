@@ -1,1 +1,14 @@
 FROM golang:1.23.3-bookworm
+
+# Set working directory to follow the github repo structure
+WORKDIR /cricket/svc
+
+# Copy all the code
+COPY . .
+
+RUN go mod download
+RUN CGO_ENABLED=0 GOOS=linux go build -o ./bin/svc
+
+EXPOSE 3000
+
+CMD ["./bin/svc"]
