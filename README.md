@@ -16,6 +16,10 @@ Everything is deployed as a k8s cluster.
 #### Running locally
 
 ```sh
+# Initialize podman
+podman machine init
+# Start podman
+podman machine start
 # Run minikube using podman as the driver
 minikube start --driver podman
 kukubectl get po -A
