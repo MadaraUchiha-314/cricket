@@ -1,0 +1,23 @@
+apiVersion: cricket-svc/v1
+kind: Deployment
+metadata:
+  name: cricket-svc
+spec:
+  selector:
+    matchLabels:
+      app: cricket-svc
+  template:
+    metadata:
+      labels:
+        app: cricket-svc
+    spec:
+      containers:
+      - name: cricket-svc
+        image: cricket-svc-image
+        imagePullPolicy: Never
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 3000

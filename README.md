@@ -16,14 +16,16 @@ Everything is deployed as a k8s cluster.
 #### Running locally
 
 ```sh
-# Initialize podman
+# Initialize podman (needed only once)
 podman machine init
 # Start podman
 podman machine start
 # Run minikube using podman as the driver
-minikube start --driver podman
-kukubectl get po -A
-miminikube dashboard
+minikube start --driver podman --container-runtime=cri-o
+# Make local podman images discoverable
+eval $(minikube podman-env)
+kubectl get po -A
+minikube dashboard
 ```
 
 ### svc
@@ -34,9 +36,14 @@ The micro-service which powers the REST APIs behind Cricketing As A Service.
 ```sh
 cd svc
 # Build image
-podman build -t cricket-svc-image .
-# Run container
-podman run -p 3000:3000 cricket-svc-image
+podman build -t cricket-svc-image -f ./Containerfile
+# Check image has been created
+# Should see an entry like: localhost/cricket-svc-image
+podman images
+# Deploy image as a container on a pod on k8s
+kubectl apply -f ./deployment/deployment-local.yaml
+# Verify
+kubectl get pods
 ```
 
 ### data-store (TBD)
